@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,66 +9,81 @@
   <meta name="description" content="Personal website for Matilde Faralli">
 
   <link rel="stylesheet" href="css/main.css">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png" >
+
   <style> 
-  	.comment{
-  		resize: none;
-  		height: 100px;
-  		width: 350px;
-  	}
+    .comment {
+      resize: none;
+      height: 100px;
+      width: 350px;
+    }
+    .dropdown-content {
+      display: none;
+      margin-top: 10px;
+    }
+    .dropdown-btn {
+      background-color: #f1f1f1;
+      color: black;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .dropdown-btn:hover {
+      background-color: #ddd;
+    }
   </style>
 
-
+  <script>
+    function toggleAbstract() {
+      var content = document.getElementById("abstract-content");
+      if (content.style.display === "none") {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
+    }
+  </script>
 </head>
 
-  <body>
-      <div id="particles-js"></div>
+<body>
+  <div id="particles-js"></div>
 
-      
-<div class="header">
-  <h1>
-    <span class="site-title"></span>
-    <span class="site-description">Working Papers</span>
-  </h1>
-  <div class="header-icons">
-    
-
-
-       <a aria-label="Main Page" target="_blank"
-      href="https://matildefaralli.github.io/">
-      <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true"></i><br>back</a>
-
-   
-  </div>
-  <!-- <div class="header-links">
-        <a class="link" href="#about" data-scroll>About Me</a>
-      </div> -->
-</div>
-<!-- <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a> -->
-
-    <div id="bio" markdown="1">
-    <!--<p style="float: right;"><img style="padding: 0 0 0 10px" src="assets/headshot_crop.png" height="auto" width="200" border="0px" /></p>
-        <p> I am a PhD student at <a href="https://www.imperial.ac.uk/business-school/">Imperial College London</a>. My research mainly focuses on climate finance, household finance and sovereign debt.</p>-->
-
-<h2 id="paper-three">What Drives Beliefs about Climate Risks? Evidence from Financial Analysts</h2>
-<div style="clear: center;">
-
-<div style="clear: justify;">
-    <p>Author:  Matilde Faralli (ICL)  </p>
-
-    <p  style="  margin: 0px;"> <small> Abstract: This paper studies how exposure to extreme weather events affects financial forecasts. Using a unique dataset that matches natural disasters with the location of equity analysts across 24 US states over 2000-2020, I apply a staggered differences-in-differences methodology to examine shifts in the earnings forecasts of analysts exposed to weather shocks. I find that analysts become more accurate after experiencing an extreme weather event. I also document that the post-exposure effect on forecasting accuracy is more pronounced for experienced analysts and for firms with high physical climate risk which are exposed to events similar to those experienced by the analysts.  </small>   </p>
-
-     <p> Download:  <a href="https://matildefaralli.github.io/pdf/What_Drives_Beliefs_about_Climate_Risks.pdf" target="blank">Newest Version</a></p>
-     <p> Awards: <em> UN PRI Best Student Paper 2023, </em> <em>LISS-DTP Best Presentation 2024 </em></p>
-     <p> Media:   <a href="https://www.unpri.org/academic-blogs/how-exposure-to-weather-events-can-affect-analysts-earning-forecasts/12088.article?utm_source=linkedin&utm_medium=social&utm_campaign=academic_blog" target="blank">Blog Post</a></p>
-
+  <div class="header">
+    <h1>
+      <span class="site-title"></span>
+      <span class="site-description">Working Papers</span>
+    </h1>
+    <div class="header-icons">
+      <a aria-label="Main Page" target="_blank" href="https://matildefaralli.github.io/">
+        <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true"></i><br>back
+      </a>
+    </div>
   </div>
 
+  <div id="bio" markdown="1">
+    <h2 id="paper-three">What Drives Beliefs about Climate Risks? Evidence from Financial Analysts</h2>
+    <div style="clear: center;">
+      <div style="clear: justify;">
+        <p>Author: Matilde Faralli (ICL)</p>
 
+        <button class="dropdown-btn" onclick="toggleAbstract()">Show/Hide Abstract</button>
+        <div id="abstract-content" class="dropdown-content">
+          <p style="margin: 0px;">
+            <small>
+              Abstract: This paper studies how exposure to extreme weather events affects financial forecasts. Using a unique dataset that matches natural disasters with the location of equity analysts across 24 US states over 2000-2020, I apply a staggered differences-in-differences methodology to examine shifts in the earnings forecasts of analysts exposed to weather shocks. I find that analysts become more accurate after experiencing an extreme weather event. I also document that the post-exposure effect on forecasting accuracy is more pronounced for experienced analysts and for firms with high physical climate risk which are exposed to events similar to those experienced by the analysts.
+            </small>
+          </p>
+        </div>
+
+        <p>Download: <a href="https://matildefaralli.github.io/pdf/What_Drives_Beliefs_about_Climate_Risks.pdf" target="blank">Newest Version</a></p>
+        <p>Awards: <em>UN PRI Best Student Paper 2023,</em> <em>LISS-DTP Best Presentation 2024</em></p>
+        <p>Media: <a href="https://www.unpri.org/academic-blogs/how-exposure-to-weather-events-can-affect-analysts-earning-forecasts/12088.article?utm_source=linkedin&utm_medium=social&utm_campaign=academic_blog" target="blank">Blog Post</a></p>
       </div>
+    </div>
+  </div>
 
 
 <h2 id="paper-one">Greening the Red: the Relationship between Climate Risk and Corporate Financial Distress</h2>
