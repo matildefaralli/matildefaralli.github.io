@@ -81,8 +81,8 @@ var pJS = function(tag_id, params){
         bounce: false,
         attract: {
           enable: false,
-          rotateX: 3000,
-          rotateY: 3000
+          rotateX: 1000,
+          rotateY: 1000
         }
       },
       array: []
@@ -120,7 +120,7 @@ var pJS = function(tag_id, params){
           particles_nb: 4
         },
         remove:{
-          particles_nb: 2
+          particles_nb: 0.5
         }
       },
       mouse:{}
