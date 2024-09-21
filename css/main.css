@@ -85,16 +85,19 @@ sup, sub {
     @media only screen and (min-width: 768px) {
       .header-links .link {
         font-size: 20px; } }
-
 .header-icons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center; 
   max-width: 200px;
+  gap: 20px;
   margin-left: auto;
   margin-right: auto; }
   .header-icons a {
     outline: 0 !important;
     border: none !important;
+    text-align: center;
+    display: inline-block;
     outline-style: none !important;
     -moz-outline-style: none !important;
     padding: none;
