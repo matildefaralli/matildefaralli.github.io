@@ -88,8 +88,6 @@ sup, sub {
         font-size: 20px; } }
 .header-icons {
   display: flex; /* Use flexbox layout */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
   max-width: 200px;
   gap: 30px;
   margin-left: auto;
@@ -97,8 +95,6 @@ sup, sub {
   .header-icons a {
     outline: 0 !important;
     border: none !important;
-    text-align: center;
-    display: inline-block;
     outline-style: none !important;
     -moz-outline-style: none !important;
     padding: none;
