@@ -88,36 +88,48 @@ sup, sub {
         font-size: 20px; } }
 .header-icons {
   display: flex; /* Use flexbox layout */
-  max-width: 200px;
+  justify-content: center; /* Center icons horizontally */
+  align-items: center; /* Center icons vertically */
   gap: 30px;
   margin-left: auto;
-  margin-right: auto; }
-  .header-icons a {
-    outline: 0 !important;
-    border: none !important;
-    outline-style: none !important;
-    -moz-outline-style: none !important;
-    padding: none;
-    margin: none;
-    text-decoration: none;
-    color: #000000; }
-  .header-icons .icon {
-    text-align: center;
-    color: #000000;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 50%;
-    border: 2px solid #000000;
-    transition: all .5s; }
-    .header-icons .icon:hover {
-      color: #ffffff;
-      background: #000000; }
-    .header-icons .icon:active {
-      color: #ffffff;
-      background: #000000; }
+  margin-right: auto;
+  padding: 0; /* Remove any padding that might cause misalignment */
+}
+
+.header-icons a {
+  outline: 0 !important;
+  border: none !important;
+  padding: 0;
+  margin: 0; /* Ensure there's no unwanted margin */
+  text-decoration: none;
+  color: #000000;
+}
+
+.header-icons .icon {
+  text-align: center;
+  color: #000000;
+  width: 30px; /* Adjust width to be consistent with other properties */
+  height: 30px;
+  font-size: 20px;
+  display: flex; /* Allow centering within the circle */
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Remove padding */
+  margin: 0; /* Ensure margin isn't affecting alignment */
+  border-radius: 50%;
+  border: 2px solid #000000;
+  transition: all .5s;
+}
+
+.header-icons .icon:hover {
+  color: #ffffff;
+  background: #000000;
+}
+
+.header-icons .icon:active {
+  color: #ffffff;
+  background: #000000;
+}
     @media only screen and (min-width: 768px) {
       .header-icons .icon {
         width: 30px;
