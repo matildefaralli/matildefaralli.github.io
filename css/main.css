@@ -87,10 +87,11 @@ sup, sub {
       .header-links .link {
         font-size: 20px; } }
 .header-icons {
-  display: flex;
-  align-items: center; 
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   max-width: 200px;
-  gap: 20px;
+  gap: 30px;
   margin-left: auto;
   margin-right: auto; }
   .header-icons a {
