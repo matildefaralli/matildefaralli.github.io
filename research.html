@@ -5,195 +5,528 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Research</title>
-  <meta name="description" content="Personal website for Matilde Faralli">
+  <title>Research – Matilde Faralli</title>
+  <meta name="description" content="Research papers by Matilde Faralli">
 
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-  <link rel="shortcut icon" type="image/png" href="assets/favicon.png" >
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <style> 
-    .comment {
-      resize: none;
-      height: 100px;
-      width: 350px;
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .dropdown-content {
-      display: none;
-      margin-top: 10px;
+
+    :root {
+      --bg: #faf6f1;
+      --nav-bg: #3d2b1f;
+      --accent: #b5694a;
+      --accent-light: #d4896a;
+      --text: #2c2520;
+      --text-light: #6b5a50;
+      --cream: #f5ede2;
+      --border: #e0d0c0;
+      --white: #ffffff;
+      --green: #5a7a5c;
+      --red: #9b3a3a;
     }
-    .dropdown-btn {
-      background-color: #f1f1f1;
-      color: black;
-      padding: 10px;
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
       font-size: 16px;
-      border: none;
-      cursor: pointer;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
-    .dropdown-btn:hover {
-      background-color: #ddd;
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background-color: var(--nav-bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #f5ede2;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      color: #d4bfa8;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, #3d2b1f 0%, #5a3d2b 100%);
+      padding: 52px 24px 44px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #f5ede2;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .page-header p {
+      color: #c4a88a;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── PAPER CARD ── */
+    .paper-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+      transition: box-shadow 0.2s;
+    }
+
+    .paper-card:hover {
+      box-shadow: 0 6px 24px rgba(61,43,31,0.12);
+    }
+
+    .paper-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .badge-published {
+      background: #eef6ee;
+      color: var(--green);
+      border: 1px solid #b5d6b5;
+    }
+
+    .badge-rr {
+      background: #fdf0e8;
+      color: var(--accent);
+      border: 1px solid #e8c4a8;
+    }
+
+    .badge-invited {
+      background: #fdf0e8;
+      color: var(--accent);
+      border: 1px solid #e8c4a8;
+    }
+
+    .badge-working {
+      background: #f5f0ea;
+      color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+
+    .paper-authors {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .paper-authors a {
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .paper-authors a:hover {
+      color: var(--accent);
+    }
+
+    /* Abstract toggle */
+    .abstract-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      margin-bottom: 12px;
+    }
+
+    .abstract-toggle:hover {
+      background: var(--cream);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .abstract-content {
+      display: none;
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    .abstract-content.open {
+      display: block;
+    }
+
+    /* Paper meta row */
+    .paper-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 10px;
+      font-size: 0.88rem;
+    }
+
+    .paper-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-light);
+    }
+
+    .paper-meta-item i {
+      font-size: 0.85rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .paper-meta-item a {
+      color: var(--text-light);
+    }
+
+    .paper-meta-item a:hover {
+      color: var(--accent);
+    }
+
+    /* Award / media inline */
+    .paper-inline {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    .paper-inline strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Section heading */
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    .section-spacer {
+      margin-top: 52px;
+      margin-bottom: 24px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--nav-bg);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+      color: #9a8070;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .paper-card { padding: 20px 18px; }
+      .page-header h1 { font-size: 1.7rem; }
     }
   </style>
 
   <script>
-    function toggleAbstract(id) {
-      var content = document.getElementById(id);
-      if (content.style.display === "none") {
-        content.style.display = "block";
+    function toggleAbstract(btn, id) {
+      var el = document.getElementById(id);
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        btn.textContent = 'Abstract ▸';
       } else {
-        content.style.display = "none";
+        el.classList.add('open');
+        btn.textContent = 'Abstract ▾';
       }
     }
   </script>
 </head>
 
 <body>
-  <!-- <div id="particles-js"></div> -->
 
-  <div class="header">
-    <h1>
-      <span class="site-title"></span>
-      <span class="site-description">Working Papers</span>
-    </h1>
-    <div class="header-icons">
-      <a aria-label="Main Page" target="_blank" href="https://matildefaralli.github.io/">
-        <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true"></i><br>back
-      </a>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-name"><a href="index_v2.html">Matilde Faralli</a></span>
+      <div class="nav-links">
+        <a href="mailto:matilde.faralli@gmail.com"><i class="fa fa-envelope"></i> Email</a>
+        <a href="https://matildefaralli.github.io/pdf/CV_matildefaralli.pdf" target="_blank">CV</a>
+        <a href="https://www.linkedin.com/in/matilde-faralli-31605ab9/" target="_blank">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=8ZHB82kAAAAJ&hl=it&oi=sra" target="_blank">Scholar</a>
+        <a href="index_v2.html">Home</a>
+        <a href="research_v2.html" class="active">Research</a>
+      </div>
     </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Working Papers &amp; Publications</h1>
+    <p>Climate Finance · Corporate Finance · Sovereign Debt</p>
   </div>
 
-  <div id="bio" markdown="1">
-    <h2 id="paper-three">What Drives Beliefs about Climate Risks? Evidence from Financial Analysts</h2>
-    <div style="clear: center;">
-      <div style="clear: justify;">
-        <p>Author: Matilde Faralli (ICL)</p>
+  <!-- MAIN -->
+  <main>
 
-        <button class="dropdown-btn" onclick="toggleAbstract('abstract-1')">Show/Hide Abstract</button>
-        <div id="abstract-1" class="dropdown-content">
-          <p style="margin: 0px;">
-            <small>
-              Abstract: This paper examines how exposure to extreme weather events affects earnings forecasts of equity analysts, using a unique dataset that matches natural disasters with the location of analysts across the US over 2000-2020. I find that analysts’ earnings forecasts become more accurate after they experience an extreme weather event. This effect is more pronounced for firms with high climate risks, greater asymmetric information, and for analysts who are more experienced. These results indicate that weather events prompt analysts to rationally acquire and incorporate more information into their forecasts.
-            </small>
-          </p>
+    <!-- ── WORKING PAPERS ── -->
+    <div class="section-label">Working Papers</div>
+
+    <!-- Paper 1 -->
+    <div class="paper-card">
+      <div class="badge badge-working">Working Paper</div>
+      <div class="paper-title">What Drives Beliefs about Climate Risks? Evidence from Financial Analysts</div>
+      <div class="paper-authors">Matilde Faralli (ICL)</div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this, 'abs-1')">Abstract ▸</button>
+      <div id="abs-1" class="abstract-content">
+        This paper examines how exposure to extreme weather events affects earnings forecasts of equity analysts, using a unique dataset that matches natural disasters with the location of analysts across the US over 2000–2020. I find that analysts' earnings forecasts become more accurate after they experience an extreme weather event. This effect is more pronounced for firms with high climate risks, greater asymmetric information, and for analysts who are more experienced. These results indicate that weather events prompt analysts to rationally acquire and incorporate more information into their forecasts.
+      </div>
+      <div class="paper-meta">
+        <span class="paper-meta-item">
+          <i class="fa fa-download"></i>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4700558" target="_blank">Newest Version</a>
+        </span>
+      </div>
+      <div class="paper-inline" style="margin-top: 10px;">
+        <strong>Awards:</strong> UN PRI Best Student Paper 2023 &nbsp;·&nbsp; LISS-DTP Best Presentation 2024
+      </div>
+      <div class="paper-inline">
+        <strong>Media:</strong> <a href="https://www.unpri.org/academic-blogs/how-exposure-to-weather-events-can-affect-analysts-earning-forecasts/12088.article" target="_blank">PRI Blog Post</a>
+      </div>
+    </div>
+
+    <!-- Paper 2 -->
+    <div class="paper-card">
+      <div class="badge badge-invited">Invited for Dual Submission at JFQA</div>
+      <div class="paper-title">Greening the Red: Climate Bias in the Bankruptcy Courtroom</div>
+      <div class="paper-authors">
+        Matilde Faralli (ICL), <a href="https://costanzatomaselli.com/" target="_blank">Costanza Tomaselli</a> (ICL)
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this, 'abs-2')">Abstract ▸</button>
+      <div id="abs-2" class="abstract-content">
+        We study how climate transition risk shapes corporate bankruptcy. We construct a novel dataset linking U.S. bankruptcies to environmental violations, facility-level emissions, and satellite-derived vegetation health. We find that firms facing higher transition risk are more prone to distress and bankruptcy. By exploiting quasi-random judge assignment, we find that judges who are lenient toward carbon-intensive firms are more likely to approve reorganizations and grant greater debt relief. After bankruptcy, these firms increase emissions and degrade local vegetation, revealing a trade-off between financial restructuring and environmental quality.
+      </div>
+      <div class="paper-meta">
+        <span class="paper-meta-item">
+          <i class="fa fa-download"></i>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5001175" target="_blank">Newest Version</a>
+        </span>
+      </div>
+      <div class="paper-inline" style="margin-top: 10px;">
+        <strong>Awards:</strong> EFiC 2024 Best PhD Paper &nbsp;·&nbsp; IFABS 2024 Best PhD Paper &nbsp;·&nbsp; Baruch-JFQA joint Best Poster Award
+      </div>
+    </div>
+
+      <!-- Paper 5 -->
+      <div class="paper-card">
+        <div class="badge badge-rr">R&amp;R at Energy Economics</div>
+        <div class="paper-title">The Rise of Climate Risks: Evidence on Firms' Expected Default Frequencies</div>
+        <div class="paper-authors">
+          Matilde Faralli (ICL), <a href="https://scholar.google.it/citations?user=VI8BxZQAAAAJ&hl=en" target="_blank">Francesco Ruggiero</a> (Bank of Italy)
         </div>
+        <button class="abstract-toggle" onclick="toggleAbstract(this, 'abs-5')">Abstract ▸</button>
+        <div id="abs-5" class="abstract-content">
+          This paper studies the relationship between climate transition risk and credit risk, proxied by firms' emission levels and Moody's Expected Default Frequencies (EDFs), respectively. In regressing Moody's EDFs on firms' emission levels, we find a negative correlation between emissions and default risk. We rationalize this result by focusing separately on firms in the top and bottom quintile of emissions and find that large emitters are charged a higher risk premium within sectors but not across sectors. By breaking down Moody's EDFs into their main components, we identify the channels through which transition risk affects the EDF. First, we show that carbon emissions are relevant for the probability of default, especially through the asset volatility channel. Second, we provide evidence that the 2015 Paris Agreement marked a turning point that reverberated on firms' credit risk. Our results suggest that after 2015 firms with high carbon footprints became riskier, thus mitigating the previous negative results. We document that this change is driven by a decrease (increase) in asset volatility of low (high) emitters. Our analysis highlights the channels through which climate risks affect credit risk and sheds light on a number of policy aspects to consider when including climate risk in credit risk-related analyses.
+        </div>
+        <div class="paper-meta">
+          <span class="paper-meta-item">
+            <i class="fa fa-download"></i>
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4144802" target="_blank">Newest Version</a>
+          </span>
+        </div>
+        <div class="paper-inline" style="margin-top: 10px;">
+          <strong>Media:</strong>
+          <a href="https://www.ansa.it/sito/notizie/economia/2025/07/08/bankitalia-aziende-inquinanti-a-maggior-rischio-di-default_c050989c-5fe2-4d6b-80e4-07cfd7a6968a.html" target="_blank">Ansa.it</a>,
+          <a href="https://www.quotidiano.net/economia/ultimaora/bankitalia-aziende-inquinanti-a-maggior-64f14ac5" target="_blank">Quotidiano.net</a>
+        </div>
+      </div>  
 
-        <p>Download: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4700558" target="blank">Newest Version</a></p>
-        <p>Awards: <em>UN PRI Best Student Paper 2023,</em> <em>LISS-DTP Best Presentation 2024</em></p>
-        <p>Media: <a href="https://www.unpri.org/academic-blogs/how-exposure-to-weather-events-can-affect-analysts-earning-forecasts/12088.article?utm_source=linkedin&utm_medium=social&utm_campaign=academic_blog" target="blank">Blog Post</a></p>
+    <!-- Paper 3 -->
+    <div class="paper-card">
+      <div class="badge badge-working">Working Paper</div>
+      <div class="paper-title">When Disasters Strike: How Do Corporate Insiders Respond to Climate Risk?</div>
+      <div class="paper-authors">
+        Matilde Faralli (ICL), <a href="https://www4.uib.no/en/find-employees/Hedda.Rytter.Tveiten" target="_blank">Hedda Rytter Tveiten</a> (UIB)
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this, 'abs-3')">Abstract ▸</button>
+      <div id="abs-3" class="abstract-content">
+        This paper examines the impact of climate disasters on insider trading behavior. We investigate whether corporate insiders who directly experience climate shocks change their trading strategies concerning firms with different levels of climate risk. We find that insiders significantly increase their selling and reduce their buying activities after directly experiencing a disaster. These effects are more pronounced for firms with high exposure to climate-related risks. We further explore the mechanisms underlying these trading responses and provide evidence that insiders acquire and act on information gained through their personal experience of the event. In line with this mechanism, we find that the effects are stronger for more experienced insiders and for firms with greater information asymmetry. We also find that the effects are concentrated in non-routine trades, they are particularly pronounced immediately following blackout periods and yield significant abnormal returns.
+      </div>
+      <div class="paper-meta">
+        <span class="paper-meta-item">
+          <i class="fa fa-download"></i>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5804063" target="_blank">Newest Version</a>
+        </span>
+      </div>
+      <div class="paper-inline" style="margin-top: 10px;">
+        <strong>Award:</strong> Best Paper Award at the Global Banking and Finance Conference 2026
+      </div>
+    </div>
+
+    <!-- Paper 4 -->
+    <div class="paper-card">
+      <div class="badge badge-working">Work in Progress</div>
+      <div class="paper-title">Accelerating the Green Transition: An Experimental Study with Portuguese Small Businesses</div>
+      <div class="paper-authors">
+        <a href="https://sites.google.com/site/claudiapcustodio/" target="_blank">Claudia Custodio</a> (ICL),
+        <a href="https://ralphdehaas.com/" target="_blank">Ralph De Haas</a> (EBRD),
+        Matilde Faralli (ICL),
+        <a href="https://www.miguelferreirafinance.com/" target="_blank">Miguel Ferreira</a> (Nova)
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this, 'abs-4')">Abstract ▸</button>
+      <div id="abs-4" class="abstract-content">
+        Transitioning to green technologies can be daunting, especially for small and medium-sized enterprises (SMEs). SMEs face several barriers to reducing their energy consumption and carbon emissions: limited access to information and support; a lack of knowledge and expertise; complex regulations; and financial constraints. This project proposes to assess and quantify these individual deterrents and enablers of SMEs' energy efficiency, not in isolation but as part of an integrated framework. To do so, we will conduct a randomized field experiment on a representative sample of Portuguese SMEs. We will investigate whether better information provision, hands-on training, consultancy, and improved access to credit can improve energy efficiency and reduce carbon emissions.
+      </div>
+      <div class="paper-meta">
+        <span class="paper-meta-item">
+          <i class="fa fa-external-link"></i>
+          <a href="https://www.socialscienceregistry.org/trials/12569/history/204109" target="_blank">AEA RCT Registry</a>
+        </span>
       </div>
     </div>
 
 
 
-  <h2 id="paper-one">Greening the Red: Climate Bias in the Bankruptcy Courtroom</h2>
-  <div style="clear: right;">
-    <div>
-      <p style="color: red;"><a>*** Invited for Dual Submission at JFQA ***</a></p>
-      <p>Authors: Matilde Faralli (ICL), <a href="https://costanzatomaselli.com/">Costanza Tomaselli</a> (ICL)</p>
+    <!-- ── PUBLICATIONS ── -->
+    <div class="section-label section-spacer">Publications</div>
 
-      <button class="dropdown-btn" onclick="toggleAbstract('abstract-2')">Show/Hide Abstract</button>
-      <div id="abstract-2" class="dropdown-content">
-        <p style="margin: 0px;">
-          <small>
-            Abstract: We study how climate transition risk shapes corporate bankruptcy. We construct a novel dataset linking U.S. bankruptcies to environmental violations, facility-level emissions, and satellite-derived vegetation health. We find that firms facing higher transition risk are more prone to distress and bankruptcy. By exploiting quasi-random judge assignment, we find that judges who are lenient toward carbon-intensive firms are more likely to approve reorganizations and grant greater debt relief. After bankruptcy, these firms increase emissions and degrade local vegetation, revealing a trade-off between financial restructuring and environmental quality. 
-          </small>
-        </p>
+    <!-- Paper 6 -->
+    <div class="paper-card">
+      <div class="badge badge-published">Published in JEEA · April 2026</div>
+      <div class="paper-title">On the Benefits of Repaying</div>
+      <div class="paper-authors">
+        <a href="https://sites.google.com/site/francescagaiacaselli/" target="_blank">Francesca Caselli</a> (IMF),
+        Matilde Faralli (ICL),
+        <a href="http://paolomanasse.it/" target="_blank">Paolo Manasse</a> (Unibo),
+        <a href="https://www.upanizza.com/" target="_blank">Ugo Panizza</a> (IHEID)
       </div>
-
-      <p>Download: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5001175" target="blank">Newest Version</a> </p>
-      <p>Awards: <em>EFiC 2024 Best PhD Paper, IFABS 2024 Best PhD Paper, Baruch-JFQA joint Best Poster Award </em></p>
+      <button class="abstract-toggle" onclick="toggleAbstract(this, 'abs-6')">Abstract ▸</button>
+      <div id="abs-6" class="abstract-content">
+        This paper studies whether countries benefit from servicing their debts during times of widespread sovereign defaults. Colombia is typically regarded as the only large Latin American country that did not default in the 1980s. Using archival research and formal econometric estimates of Colombia's probability of default, we show that in the early 1980s Colombia's fundamentals were not significantly different from those of the Latin American countries that defaulted on their debts. We also document that the different path chosen by Colombia was due to the authorities' belief that maintaining a good reputation in the international capital market would have substantial long-term payoffs. We show that the case of Colombia is more complex than what it is commonly assumed. Although Colombia had to re-profile its debts, high-level political support from the US allowed Colombia do to so outside the standard framework of an IMF program. Our counterfactual analysis shows that in the short to medium run, Colombia benefited from avoiding an explicit default. Specifically, we find that GDP growth in the 1980s was higher than that of a counterfactual in which Colombia behaved like its neighboring countries. We also test whether Colombia's behavior in the 1980s led to long-term reputational benefits. Using an event study based on a large sudden stop, we find no evidence for such long-lasting reputational gains.
+      </div>
+      <div class="paper-meta">
+        <span class="paper-meta-item">
+          <i class="fa fa-download"></i>
+          <a href="https://academic.oup.com/jeea/article-abstract/24/2/517/8248022?redirectedFrom=fulltext" target="_blank">Published Paper</a>
+        </span>
+      </div>
+      <div class="paper-inline" style="margin-top: 10px;">
+        <strong>Media:</strong>
+        <a href="https://www.ilfoglio.it/economia/2021/10/02/news/la-nadef-l-effetto-draghi-e-l-insegnamento-del-caso-colombia--3064978/" target="_blank">Il Foglio</a>,
+        <a href="https://podcasts.apple.com/us/podcast/ep-75-ft-paolo-manasse-matilde-faralli-ugo-panizza/id1528208049?i=1000563282090" target="_blank">Podcast</a>,
+        <a href="https://cepr.org/voxeu/columns/benefits-repaying" target="_blank">VoxEU</a>
+      </div>
     </div>
-  </div>
 
-  <h2 id="paper-one">When Disasters Strike: How Do Corporate Insiders Respond to Climate Risk?</h2>
-  <div style="clear: right;">
-    <div>
-      <p>Authors: Matilde Faralli (ICL), <a href="https://www4.uib.no/en/find-employees/Hedda.Rytter.Tveiten">Hedda Rytter Tveiten</a> (UIB)</p>
+  </main>
 
-      <button class="dropdown-btn" onclick="toggleAbstract('abstract-2')">Show/Hide Abstract</button>
-      <div id="abstract-2" class="dropdown-content">
-        <p style="margin: 0px;">
-          <small>
-            Abstract: This paper examines the impact of climate disasters on insider trading behavior. We investigate whether corporate insiders who directly experience climate shocks change their trading strategies concerning firms with different levels of climate risk. We find that insiders significantly increase their selling and reduce their buying activities after directly experiencing a disaster. These effects are more pronounced for firms with high exposure to climate-related risks. We further explore the mechanisms underlying these trading responses and provide evidence that insiders acquire and act on information gained through their personal experience of the event. In line with this mechanism, we find that the effects are stronger for more experienced insiders and for firms with greater information asymmetry. We also find that the effects are concentrated in non-routine trades, they are particularly pronounced immediately following blackout periods and yield significant abnormal returns.  
-          </small>
-        </p>
-      </div>
+  <footer>
+    <p>&copy; 2026 Matilde Faralli</p>
+  </footer>
 
-      <p>Download: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5804063">Newest Version</a></p>
-      <p>Award: <em>Best Paper Award at the Global Banking and Finance Conference 2026</em></p>
-   </div>
-  </div>
-
-  <h2 id="paper-two">Accelerating the Green Transition: An Experimental Study with Portuguese Small Businesses</h2>
-  <div style="clear: right;">
-    <div>
-      <p>Authors: <a href="https://sites.google.com/site/claudiapcustodio/">Claudia Custodio</a> (ICL), <a href="https://ralphdehaas.com/">Ralph De Haas</a> (EBRD), Matilde Faralli (ICL), <a href="https://www.miguelferreirafinance.com/">Miguel Ferreira</a> (Nova)</p>
-
-      <button class="dropdown-btn" onclick="toggleAbstract('abstract-3')">Show/Hide Abstract</button>
-      <div id="abstract-3" class="dropdown-content">
-        <p style="margin: 0px;">
-          <small>
-            Transitioning to green technologies can be daunting, especially for small and medium-sized enterprises (SMEs). SMEs face several barriers to reducing their energy consumption and carbon emissions: limited access to information and support; a lack of knowledge and expertise; complex regulations; and financial constraints. This project proposes to assess and quantify these individual deterrents and enablers of SMEs' energy efficiency, not in isolation but as part of an integrated framework. To do so, we will conduct a randomized field experiment on a representative sample of Portuguese SMEs. We will investigate whether better information provision, hands-on training, consultancy, and improved access to credit can improve energy efficiency and reduce carbon emissions.
-          </small>
-        </p>
-      </div>
-
-      <p>AEA RCT Registry: <a href="https://www.socialscienceregistry.org/trials/12569/history/204109">Link</a></p>
-    </div>
-  </div>
-
-
-
-  <h2 id="paper-three">The Rise of Climate Risks: Evidence on Firms' Expected Default Frequencies</h2>
-  <div style="clear: right;">
-    <div>
-      <p style="color: red;"><a>*** Revise and Resubmit at Energy Economics***</a></p>
-      <p>Authors: Matilde Faralli (ICL), <a href="https://scholar.google.it/citations?user=VI8BxZQAAAAJ&hl=en">Francesco Ruggiero</a> (Bank of Italy)</p>
-
-      <button class="dropdown-btn" onclick="toggleAbstract('abstract-4')">Show/Hide Abstract</button>
-      <div id="abstract-4" class="dropdown-content">
-        <p style="margin: 0px;">
-          <small>
-            Abstract: This paper studies the relationship between climate transition risk and credit risk, proxied by firms' emission levels and Moody's Expected Default Frequencies (EDFs), respectively. In regressing Moody's EDFs on firms' emission levels, we find a negative correlation between emissions and default risk. We rationalize this result by focusing separately on firms in the top and bottom quintile of emissions and find that large emitters are charged a higher risk premium within sectors but not across sectors. By breaking down Moody's EDFs into their main components, we identify the channels through which transition risk affects the EDF. First, we show that carbon emissions are relevant for the probability of default, especially through the asset volatility channel. Second, we provide evidence that the 2015 Paris Agreement marked a turning point that reverberated on firms’ credit risk. Our results suggest that after 2015 firms with high carbon footprints became riskier, thus mitigating the previous negative results. We document that this change is driven by a decrease (increase) in asset volatility of low (high) emitters. Our analysis highlights the channels through which climate risks affect credit risk and sheds light on a number of policy aspects to consider when including climate risk in credit risk-related analyses.
-          </small>
-        </p>
-      </div>
-
-      <p>Download: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4144802">Newest Version</a></p>
-      <p> Media:     <a href="https://www.ansa.it/sito/notizie/economia/2025/07/08/bankitalia-aziende-inquinanti-a-maggior-rischio-di-default_c050989c-5fe2-4d6b-80e4-07cfd7a6968a.html" target="blank">Article on Ansa.it</a>, <a href="https://www.quotidiano.net/economia/ultimaora/bankitalia-aziende-inquinanti-a-maggior-64f14ac5" target="blank">Article on Quotidiano.net</a> </p>
-    </div>
-  </div>
-
-
-  <h2 id="paper-four">On the Benefits of Repaying</h2>
-  <div style="clear: right;">
-    <div>
-      <p style="color: red;"><a>*** Published in JEEA in September 2025 ***</a></p>
-       <p>Authors: <a href="https://sites.google.com/site/francescagaiacaselli/">Francesca Caselli</a> (IMF), Matilde Faralli (ICL), <a href=" http://paolomanasse.it/">Paolo Manasse</a> (Unibo), <a href=" https://www.upanizza.com/">Ugo Panizza</a> (IHEID) </p>
-
-      <button class="dropdown-btn" onclick="toggleAbstract('abstract-5')">Show/Hide Abstract</button>
-      <div id="abstract-5" class="dropdown-content">
-        <p style="margin: 0px;">
-          <small>
-            Abstract: This paper studies whether countries benefit from servicing their debts during times of widespread sovereign defaults. Colombia is typically regarded as the only large Latin American country that did not default in the 1980s. Using archival research and formal econometric estimates of Colombia's probability of default, we show that in the early 1980s Colombia's fundamentals were not significantly different from those of the Latin American countries that defaulted on their debts. We also document that the different path chosen by Colombia was due to the authorities' belief that maintaining a good reputation in the international capital market would have substantial long-term payoffs. We show that the case of Colombia is more complex than what it is commonly assumed. Although Colombia had to re-profile its debts, high-level political support from the US allowed Colombia do to so outside the standard framework of an IMF program. Our counterfactual analysis shows that in the short to medium run, Colombia benefited from avoiding an explicit default. Specifically, we find that GDP growth in the 1980s was higher than that of a counterfactual in which Colombia behaved like its neighboring countries. We also test whether Colombia's behavior in the 1980s led to long-term reputational benefits. Using an event study based on a large sudden stop, we find no evidence for such long-lasting reputational gains.
-          </small>
-        </p>
-      </div>
-
-     <p> Download:  <a href="https://www.imf.org/en/Publications/WP/Issues/2021/09/10/On-the-Benefits-of-Repaying-465418">Newest Version</a> </p>
-     <p> Media:     <a href="https://www.ilfoglio.it/economia/2021/10/02/news/la-nadef-l-effetto-draghi-e-l-insegnamento-del-caso-colombia--3064978/" target="blank">Article on il Foglio</a>, <a href="https://podcasts.apple.com/us/podcast/ep-75-ft-paolo-manasse-matilde-faralli-ugo-panizza/id1528208049?i=1000563282090" target="blank">Podcast</a>,  <a href="https://cepr.org/voxeu/columns/benefits-repaying" target="blank">VoxEU</a></p>
-    </div>
-  </div>
-</div>
-
-<script src="https://unpkg.com/sweet-scroll/sweet-scroll.min.js"></script>
-
-
-<script src="particles.js-master/particles.js"></script>
-<script src="js/app.js"></script>
-
-
-
-  </body>
+</body>
 </html>
