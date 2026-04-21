@@ -116,6 +116,47 @@
       background: rgba(255,255,255,0.08);
     }
 
+    /* Hamburger button */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: #f5ede2;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        z-index: 99;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 14px 24px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        font-size: 0.9rem;
+      }
+    }
+
     /* ── PAGE HEADER ── */
     .page-header {
       background: linear-gradient(135deg, #3d2b1f 0%, #5a3d2b 100%);
@@ -353,6 +394,7 @@
   <nav>
     <div class="nav-inner">
       <span class="nav-name"><a href="index.html">Matilde Faralli</a></span>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <div class="nav-links">
         <a href="mailto:matilde.faralli@gmail.com"><i class="fa fa-envelope"></i> Email</a>
         <a href="https://matildefaralli.github.io/pdf/CV_matildefaralli.pdf" target="_blank">CV</a>
